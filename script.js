@@ -26,7 +26,7 @@ function createTodo() {
     .then(() => {
       fetchTodos();
     })
-    .catch((error) => console.error('Error adding todo:', error));
+    .catch((error) => window.location.reload());
 
   document.getElementById('myInput').value = '';
 }
@@ -60,7 +60,7 @@ function fetchTodos() {
         todoList.appendChild(li);
       });
     })
-    .catch((error) => console.error('Error fetching todos:', error));
+    .catch((error) => window.location.reload());
 }
 
 function updateTodoStatus(id, currentStatus) {
@@ -84,7 +84,9 @@ function updateTodoStatus(id, currentStatus) {
     .then(() => {
       fetchTodos();
     })
-    .catch((error) => console.error('Error updating todo:', error));
+    .catch((error) => {
+      window.location.reload();
+    });
 }
 
 window.onload = function () {
